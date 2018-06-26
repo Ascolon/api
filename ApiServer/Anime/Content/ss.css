@@ -1,0 +1,129 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    color:white;
+    padding-top: 100px;
+    background-color: #343434;
+}
+input::-webkit-input-placeholder{
+    color:white;
+    font-size:20px;
+}
+input:focus, select:focus, textarea:focus{
+    outline:none;
+}
+.add-table tr td input {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    font-weight: 100;
+    border-bottom: 2px solid #026e79;
+    width: 400px;
+}
+.add-table tr td select {
+    width: 400px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #026e79;
+    font-size: 18px;
+    font-weight: 100;
+}
+.add-table tr td textarea {
+    width: 600px;
+    resize:none;
+    height:300px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #026e79;
+} 
+.td_name {
+    font-size: 20px;
+    font-weight: 100;
+    padding-right: 20px;
+}
+
+button:focus {
+    outline: none;
+    background-color: transparent;
+    border: none;
+    color: #171717;
+}
+button {
+    outline: none;
+    background-color: transparent;
+    border: none;
+    color: #171717;
+}
+
+.container-movie {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    background-color: white;
+    margin-bottom: 20px;
+    transition: .6s;
+    cursor:pointer;
+    box-shadow: 0 0 5px 0 rgba(255, 255, 255, .7);
+}
+.container-movie:hover{
+    transition: .6s;
+    transform:scale(1.05);
+}
+.container-movie span {
+    display: flex;
+    font-size:20px;
+    font-weight:300;
+    justify-content: center;
+    align-items: center;
+    color:black;
+}
+.btn-manage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-manage button, .btn-manage a{
+    background-color:transparent;
+    border:none;
+    text-decoration:none;
+    color: #171717;
+    font-size:24px;
+}
+.search {
+    padding: 0;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.search input{
+    color: white;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid #039c79;
+    width: 600px;
+    height: 30px;
+}
+.search button{
+    padding-left: 20px;
+    font-size: 24px;
+    height: 30px;
+}
+.search-result{
+    padding:0;
+    margin-bottom:40px;
+}
+.loading{
+    top:0;
+    left:0;
+    padding-top:200px;
+    position:fixed;
+    height:100%;
+    width:100%;
+    z-index:10000;
+    background-color: rgba(0,0,0,0.5);
+    display:none;
+    justify-content:center;
+    align-content:center;
+}

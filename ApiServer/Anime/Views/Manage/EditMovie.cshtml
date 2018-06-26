@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "ПРАВКА";
+    var list = new List<int>();
+    for (int i = 1900; i < 2028; i++)
+    {
+        list.Add(i);
+    }
+}
+
+<h2>ПРАВКА</h2>
+<form method="post" action="/Manage/SaveChangeMovie" enctype="multipart/form-data">
+    <input type="hidden" name="FilmId" value="@ViewBag.Film.FilmId" />
+    <table class="add-table">
+        <tr>
+            <td class="td_name">название</td>
+            <td><input class="add-input" type="text" value="@ViewBag.Film.Name" required name="Name" /></td>
+        </tr>
+        <tr>
+            <td class="td_name">год</td>
+            <td>
+                 <select required name="Year" id="genre-list">
+                    @foreach (var item in list)
+                    {
+                        if (item == ViewBag.Film.Year)
+                        {
+                            <option selected value="@item">@item</option>
+                        }
+                        else
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="td_name">жанр</td>
+            <td>
+                <select required name="Genre" id="genre-list">
+                    @foreach (var item in ViewBag.Genre)
+                    {
+                        if (item == ViewBag.Film.Genre)
+                        {
+                            <option selected value="@item">@item</option>
+                        }
+                        else
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="td_name">страна</td>
+            <td>
+                <select required name="Country" id="genre-list">
+                    @foreach (var item in ViewBag.Country)
+                    {
+                        if (item == ViewBag.Film.Country)
+                        {
+                            <option selected value="@item">@item</option>
+                        }
+                        else
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="td_name">рейтинг Imdb</td>
+            <td style="display:flex">
+                <span style="font-size:18px; width:30px;" class="add-input" id="imdb">@ViewBag.Film.Imdb</span>
+                <input required step="0.01"oninput="setImdb(event)" 
+                       style="margin-left:20px" 
+                       class="add-input"
+                       type="range" min="0" max="10"  
+                       name="Imdb" value="@ViewBag.Film.Imdb" />
+            </td>
+        </tr>
+        <tr>
+            <td style="display:flex; justify-content:flex-start; align-items:center;" class="td_name">описание</td>
+            <td><textarea required name="Description" style="height:150px; max-height:150px;">@ViewBag.Film.Description</textarea></td>
+        </tr>
+        <tr>
+            <td class="td_name">постер</td>
+            <td><input value="@ViewBag.Film.Poster" type="file" name="Poster" accept="Image/*" /></td>
+        </tr>
+        <tr>
+            <td class="td_name">видео</td>
+            <td><input value="@ViewBag.Film.Video" type="file" name="Video" accept="Video/*" /></td>
+        </tr>
+        <tr>
+            <td class="td_name">задник</td>
+            <td><input value="@ViewBag.Film.Pagebg" type="file" name="Pagebg" accept="Image/*" /></td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-primary redirect-back">отправить</button>
+</form>
+
+<script>
+    function setImdb(event) {
+        document.getElementById('imdb').innerText = event.target.value;
+    }
+</script>
+

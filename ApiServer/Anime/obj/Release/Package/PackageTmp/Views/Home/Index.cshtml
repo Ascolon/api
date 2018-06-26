@@ -1,0 +1,110 @@
+﻿@{ 
+
+}
+
+<div class="col-md-12 search">
+    <input placeholder="search" type="text" id="search"/>
+    <a href="/Manage/Index" style="font-size:18px; height: 40px; float:right;" class="btn btn-primary">добавить</a>
+    @*<span>полное совпадение</span>
+    <input  style="width:40px" type="checkbox" id="full"/>*@
+    @*<button class="glyphicon glyphicon-search"></button>*@
+</div>
+<h3 id="h-search" style="display:none;">результаты поиска 
+    <span class="total-find">----</span>
+    @*<button class="btn btn-primary" id="hide-result" style="float:right;">скрыть результаты</button>*@
+</h3> 
+<div class="col-md-12 search-result" id="search-result-div">
+
+</div>
+
+<h2>список</h2>
+@foreach (var film in ViewBag.Movies)
+{
+    <div class="col-md-12 container-movie" id="SelectedFilm-@film.FilmId">
+        <span>@film.Name</span>
+        <div class="btn-manage">
+            <button onclick="DeleteFilm(@film.FilmId, this)" class="glyphicon glyphicon-remove-circle"></button>
+            <a href="/Manage/EditMovie/?id=@film.FilmId" class="glyphicon glyphicon-edit"></a>
+        </div>
+    </div>
+}
+
+<div class="loading" id="loading">
+    <h1>WAIT.....</h1>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="col-md-3" style="padding:0;">
+        <ul class="genre-list">
+            @foreach (var genre in ViewBag.Genres)
+            {
+                <li>
+                    <div class="genre-container">
+                        <span>@genre.Name</span>
+                        <span class="count-film">@genre.CountFilms</span>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col-md-9 films-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Жанр</th>
+                    <th>Год</th>
+                </tr>
+            </thead>
+            <tbody>
+                    @foreach (var film in ViewBag.Films)
+                    {
+                    <tr id="SelectedFilm-@film.FilmId">
+                        <td>@film.Name</td>
+                        <td>@film.Genre.Name</td>
+                        <td>@film.Year</td>
+                        <td>@Html.ActionLink("Править", "Edit", "Manage", new { id = film.FilmId }, new { @class = "btn btn-success"})</td>
+                        <td><button onclick="DeleteFilm(@film.FilmId, this)" class="btn btn-success">Удалить</button></td>
+                    </tr>
+                    }
+            </tbody>
+        </table>
+    </div>*@
